@@ -2,6 +2,7 @@
 ## Abstract
 Pretty naive albeit pretty robust model to make NFTs operable in different blockchains is to implement variation of a master-slaves model. This model is classic for  the distributed system theory and is applied often. Idea is rather straightforward: to apply changes to distributed (sharded) state we choose master partition (leader) which process all updates (owner change of a NFT) and eventually replicate these changes to slave (replica) partitions. 
 For example, consider following scenario: we mint a NFT on Ethereum network and move it for processing to polygon network, which is logical. To implement such a mechanism we need two important components: the gateway contract and relay. 
+![alt-text](scheme1.png)
 
 ## NFT Contract
 In order not to break working things we won't touch existing ERC-721 token contracts. When we want to add a new network it is necessary to create the same ERC-721 contract in a new network and mint all NFTs to the Gateway contract, it means that this token is locked in the new network and can be unlocked only via relay.
